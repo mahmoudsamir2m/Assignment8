@@ -1,0 +1,6 @@
+// الحلول الخاصة بـ MongoDB Shell
+db.createCollection("books", { validator: { $jsonSchema: { bsonType: "object", required: ["title"], properties: { title: { bsonType: "string" } } } } });
+db.authors.insertOne({ "name": "Author1", "nationality": "British" });
+db.createCollection("logs", { capped: true, size: 1048576 });
+db.books.createIndex({ "title": 1 });
+db.books.insertOne({ "title": "Book1", "author": "Ali", "year": 1937, "genres": ["Fantasy", "Adventure"] });
